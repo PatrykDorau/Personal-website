@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # portfolio-site
 
 ## Project setup
@@ -22,3 +23,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# Personal-website
+Personal website
+>>>>>>> 14928501e84c22e4d97a0dadd6744e39f2b214d3
