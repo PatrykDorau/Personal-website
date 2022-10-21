@@ -8,28 +8,23 @@
     <div class="navbar-content">
       <div class="navbar-logo">
         <div class="logo">
-          <svg id="letter-p" width="25" height="30" viewBox="0 0 75 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M62.2558 54.9732L62.2566 54.9725C68.0906 49.3329 71.004 42.2236 71.004 33.896C71.004 25.3171 68.0056 18.0879 61.9472 12.513C55.8682 6.83887 47.2394 4.284 36.656 4.284H7.85599H4.35599V7.784V97V100.5H7.85599H19.504H23.004V97V63.252H36.656C47.538 63.252 56.3109 60.7166 62.2558 54.9732ZM48.627 43.348C46.478 45.3179 42.7338 46.652 36.656 46.652H23.004V20.884H36.656C42.5402 20.884 46.2997 22.1766 48.5643 24.1504C50.737 26.0442 52.1 29.0662 52.1 33.896C52.1 38.3821 50.803 41.3532 48.627 43.348Z" stroke="#FFFDFD" stroke-width="10"/>
-          </svg>
-          <svg id="letter-d" width="30" height="30" viewBox="0 0 89 103" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M61.4454 93.9031L61.453 93.8994L61.4606 93.8956C69.2053 90.0256 75.1872 84.4433 79.2952 77.168C83.4758 69.83 85.5 61.2968 85.5 51.6915C85.5 42.0896 83.4772 33.5589 79.2995 26.2226C75.1992 18.872 69.2258 13.2451 61.4831 9.37106C53.8231 5.41034 44.8649 3.5 34.7257 3.5H7H3.5V7V96V99.5H7H34.7257C44.8514 99.5 53.7951 97.6799 61.4454 93.9031ZM58.41 28.2115L58.4185 28.2202L58.4271 28.229C63.7523 33.6248 66.6175 41.287 66.6175 51.6915C66.6175 62.0125 63.794 69.584 58.563 74.8905C53.3729 80.0719 45.6204 82.9232 34.7257 82.9232H22.1269V19.9491H34.7257C45.5064 19.9491 53.2106 22.869 58.41 28.2115Z" stroke="#FFFDFD" stroke-width="10"/>
+          <svg width="50" viewBox="0 0 205 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="letter-p" d="M6.64 6.2H67.12C77.2 6.2 84.496 8.504 89.008 13.112C93.616 17.624 95.92 24.92 95.92 35V49.4C95.92 59.48 93.616 66.824 89.008 71.432C84.496 75.944 77.2 78.2 67.12 78.2H32.56V107H6.64V6.2ZM70 35C70 29.24 67.12 26.36 61.36 26.36H32.56V58.04H61.36C67.12 58.04 70 55.16 70 49.4V35Z" stroke="white" stroke-width="12"/>
+            <path id="letter-d" d="M165.034 6.2C175.882 6.2 184.09 9.032 189.658 14.696C195.322 20.264 198.154 28.472 198.154 39.32V73.88C198.154 84.728 195.322 92.984 189.658 98.648C184.09 104.216 175.882 107 165.034 107H108.874V6.2H165.034ZM172.234 39.32C172.234 30.68 167.914 26.36 159.274 26.36H134.794V86.84H159.274C167.914 86.84 172.234 82.52 172.234 73.88V39.32Z" stroke="white" stroke-width="12"/>
           </svg>
         </div>
       </div>
-      <div class="navbar-links">
-        <div v-motion-slide-right :delay="300" class="navbar-links-item">Portfolio</div>
-        <div v-motion-slide-right :delay="450" class="navbar-links-item">Skills</div>
-        <div v-motion-slide-right :delay="600" class="navbar-links-item">Contact</div>
-        <div class="cursor"></div>
-      </div>
     </div>
-    <div class="navbar-icons-wrapper">
-      <div class="site-mode-switch dark"><FontAwesomeIcon icon="sun" /> <FontAwesomeIcon icon="moon" /></div>
-      <div class="navigation-trigger">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
+    <div class="navbar-links">
+      <div v-motion-slide-right :delay="300" class="navbar-links-item">Portfolio</div>
+      <div v-motion-slide-right :delay="450" class="navbar-links-item">Skills</div>
+      <div v-motion-slide-right :delay="600" class="navbar-links-item">Contact</div>
+      <div class="cursor"></div>
+    </div>
+    <div @click="openNav()" class="navigation-trigger">
+      <i id="first-line"></i>
+      <i id="second-line"></i>
+      <i id="third-line"></i>
     </div>
   </div>
 </template>
@@ -37,10 +32,14 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      navOpened: false
+    }
+  },
   mounted() {
     this.mouseFollowEffect();
     this.cursorPosition();
-    this.cursorZoom();
   },
   methods: {
     mouseFollowEffect() {
@@ -74,20 +73,20 @@ export default {
 
       window.addEventListener('mousemove', editCursor);
     },
-    cursorZoom() {
-      let items = document.querySelectorAll('.navbar-links-item');
-      let cursor = document.querySelector('.cursor');
+    openNav() {
+      let nav = document.querySelector('.navbar-links');
+      let navBtn = document.querySelector('.navigation-trigger');
 
-      items.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          console.log("enter");
-          cursor.classList.add("active");
-        })
-        item.addEventListener('mouseleave', () => {
-          console.log("leave");
-          cursor.classList.remove("active");
-        })
-      })
+      if(!this.navOpened) {
+        nav.classList.add("active");
+        navBtn.classList.add("active");
+        this.navOpened = !this.navOpened;
+      } else {
+        nav.classList.remove("active");
+        navBtn.classList.remove("active");
+        this.navOpened = !this.navOpened;
+      } 
+
     }
   }
 }
@@ -95,10 +94,10 @@ export default {
 
 <style scoped>
   .navbar-container {
-    margin: 0 auto;
+    margin: 0 auto 5vw auto;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     color: #fff;
   }
 
@@ -110,18 +109,17 @@ export default {
 
   .navbar-logo {
     margin-right: clamp(20px, calc(100vw * 35 / 1200) ,35px);
-    /* animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;  */
   }
 
-  #letter-p path {
-    stroke-dasharray: 400px;
-    stroke-dashoffset: 400px;
+  #letter-p {
+    stroke-dasharray: 491px;
+    stroke-dashoffset: 491px;
     animation: line-animation-down 2s 200ms ease forwards;
   }
 
-  #letter-d path {
-    stroke-dasharray: 507px;
-    stroke-dashoffset: 507px;
+  #letter-d {
+    stroke-dasharray: 540px;
+    stroke-dashoffset: 540px;
     animation: line-animation-down 2s 500ms ease forwards;
   }
 
@@ -131,7 +129,21 @@ export default {
   }
 
   .navbar-links {
-    display: none;
+    display: flex;
+    position: absolute;
+    right: -300px;
+    flex-direction: column;
+    top: 75px;
+    transition: all .3s ease;
+  }
+  .navbar-links.active {
+    right: 10px;
+    padding: 0 10px;
+    background-color: #201c24;
+  }
+
+  .navbar-links.active .navbar-links-item{
+    font-size: 25px;
   }
 
   .navbar-links-item {
@@ -161,14 +173,11 @@ export default {
     align-items: center;
     border-radius: 6px;
     transition: all 1s ease;
+    background-color: lightblue;
   }
 
   .site-mode-switch.dark {
     background-color: lightgreen;
-  }
-
-  .site-mode-switch.light {
-    background-color: lightblue;
   }
 
   .navigation-trigger {
@@ -178,7 +187,6 @@ export default {
     cursor: pointer;
     width: 30px;
     height: 25px;
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -193,16 +201,22 @@ export default {
     display: block;
     width: 100%;
     height: 3px;
+    transition: all 0.2s linear;
+  }
+
+  .navigation-trigger.active #first-line{
+    opacity: 0;
+  }
+  .navigation-trigger.active #second-line {
+    rotate: 50deg;
+  }
+  .navigation-trigger.active #third-line {
+    rotate: -50deg;
+    translate: 0 -7px;
   }
 
   .cursor {
-    pointer-events: none;
-    position: fixed;
-    padding: 0.3rem;
-    background-color: #fff;
-    border-radius: 50%;
-    mix-blend-mode: difference;
-    transition: transform 0.3s ease;
+    display: none;
   }
 
   .navbar-links-item:hover ~ .cursor {
@@ -210,13 +224,28 @@ export default {
   }
 
   @media (min-width: 768px) {
+    .navbar-container {
+      justify-content: space-around;
+    }
     .navbar-links {
       display: flex;
       justify-content: space-between;
+      position: initial;
+      flex-direction: row;
     }
 
     .navigation-trigger {
       display: none;
+    }
+    .cursor {
+      display: block;
+      pointer-events: none;
+      position: fixed;
+      padding: 0.3rem;
+      background-color: #fff;
+      border-radius: 50%;
+      mix-blend-mode: difference;
+      transition: transform 0.3s ease;
     }
   }
 

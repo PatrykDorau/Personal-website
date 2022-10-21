@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Coding is
+    <h1>For <em>me</em>, coding is
       <span class="typed-text">{{ typeValue }}</span>
       <span class="cursor" :class="{'typing': typeStatus}">&nbsp;</span>
     </h1>
@@ -14,16 +14,17 @@ import { setTimeout } from 'timers';
       return {
         typeValue: '',
         typeStatus: false,
-        typeArray: ['fun', 'awesome', 'a journey', 'life'],
+        typeArray: ['interesting', 'a journey', 'creativity', 'life'],
         typingSpeed: 200,
         erasingSpeed: 100,
-        newTextDelay: 2000,
+        newTextDelay: 400,
         typeArrayIndex: 0,
         charIndex: 0
       }
     },
     methods: {
       typeText() {
+        
         if(this.charIndex < this.typeArray[this.typeArrayIndex].length) {
           if(!this.typeStatus)
             this.typeStatus = true;
@@ -61,15 +62,24 @@ import { setTimeout } from 'timers';
 
 <style scoped>
   .container {
-    width: 100%;
-    height: 100%;
     display: flex;
+    width: 80%;
+    max-width: 500px;
+    margin-inline: auto;
+    border-radius: 15px;
     justify-content: center;
     align-items: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
   }
   h1 {
     font-size: 20px;
     font-weight: normal;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: #D2B94B;
   }
 
   span.cursor {

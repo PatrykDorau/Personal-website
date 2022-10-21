@@ -1,19 +1,14 @@
 <template>
-<div class="site-wrapper">
-  <Navbar/>
-  <TypeEffect/>
-</div>
+  <MainPage/>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import TypeEffect from './components/TypeEffect.vue';
+import MainPage from './components/MainPage.vue';
 
 export default {
   name: 'App',
   components: {
-    Navbar,
-    TypeEffect
+    MainPage
   },
 }
 </script>
@@ -26,12 +21,4 @@ html, body {
   background-color: #201c24;
   font-family: 'Russo One', sans-serif;
 }
-  .site-wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #201c24;
-  }
 </style>
