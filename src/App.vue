@@ -20,5 +20,7 @@ html, body {
   cursor: none;
   background-color: #201c24;
   font-family: 'Russo One', sans-serif;
+  height: 100%;
+  width: 100%;
 }
 </style>

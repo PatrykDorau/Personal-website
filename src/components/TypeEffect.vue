@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <h1>For <em>me</em>, coding is
+    <div class="face-container">
+      <img src="../assets/logo-face.png" alt="" style="width:120%">
+    </div>
+    <h1>
+      : Hello, <em>I'm</em> Patryk Dorau.
       <span class="typed-text">{{ typeValue }}</span>
       <span class="cursor" :class="{'typing': typeStatus}">&nbsp;</span>
     </h1>
@@ -14,10 +18,10 @@ import { setTimeout } from 'timers';
       return {
         typeValue: '',
         typeStatus: false,
-        typeArray: ['interesting', 'a journey', 'creativity', 'life'],
-        typingSpeed: 200,
+        typeArray: ["I'm front-end dev","I'm from Poznan", "I was born in 00", "I'm a husband", "I like football", "I also like coding", "I believe in Jesus"],
+        typingSpeed: 150,
         erasingSpeed: 100,
-        newTextDelay: 400,
+        newTextDelay: 600,
         typeArrayIndex: 0,
         charIndex: 0
       }
@@ -63,17 +67,31 @@ import { setTimeout } from 'timers';
 <style scoped>
   .container {
     display: flex;
-    width: 80%;
-    max-width: 500px;
+    width: fit-content;
+    padding-inline: 15px;
     margin-inline: auto;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
   }
+
+  .face-container {
+    padding: 10px;
+    margin: 5px 2px 5px 0;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #D2B94B;
+    width: clamp(20px, calc(100vw * 25 / 1920),25px);;
+    height: clamp(21px, calc(100vw * 27 / 1920),27px);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   h1 {
-    font-size: 20px;
+    font-size: clamp(13px, calc(100vw * 20 / 1920),20px);
     font-weight: normal;
   }
 
@@ -83,19 +101,21 @@ import { setTimeout } from 'timers';
   }
 
   span.cursor {
-        display: inline-block;
-        margin-left: 3px;
-        width: 4px;
-        background-color: #fff;
-        animation: cursorBlink 1s infinite;
-      }
-  span.typed-text {
-      color: #D2B94B;
-    }
+    display: inline-block;
+    margin-left: 3px;
+    width: 4px;
+    background-color: #fff;
+    animation: cursorBlink 1s infinite;
+  }
 
-    span.cursor.typing {
-      animation: none;
-    }
+  span.typed-text {
+    color: #D2B94B;
+  }
+
+  span.cursor.typing {
+    animation: none;
+  }
+  
   @keyframes cursorBlink {
     49% { background-color: #fff; }
     50% { background-color: transparent; }

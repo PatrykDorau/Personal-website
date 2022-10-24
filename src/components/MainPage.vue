@@ -1,19 +1,29 @@
 <template>
 <div class="site-wrapper">
-  <Navbar/>
+  <Navbar
+    v-motion="'custom'"
+    :initial="{ opacity: 0, y: -700}"
+    :enter="{ opacity: 1, y: 0,}"
+  />
   <TypeEffect/>
+  <About/>
+  <Skills/>
 </div>
 </template>
 
 <script>
 import Navbar from "./Navbar.vue";
 import TypeEffect from './TypeEffect.vue';
+import About from "./About.vue";
+import Skills from "./Skills.vue";
 
 export default {
   name: 'MainPage',
   components: {
     Navbar,
-    TypeEffect
+    TypeEffect,
+    About,
+    Skills,
   },
 }
 </script>
@@ -26,6 +36,5 @@ export default {
     padding: 0;
     box-sizing: border-box;
     background-color: #201c24;
-    overflow: hidden;
   }
 </style>
