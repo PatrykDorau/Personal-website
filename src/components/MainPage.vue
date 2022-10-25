@@ -8,6 +8,7 @@
   <TypeEffect/>
   <About/>
   <Skills/>
+  <Portfolio/>
 </div>
 </template>
 
@@ -16,6 +17,7 @@ import Navbar from "./Navbar.vue";
 import TypeEffect from './TypeEffect.vue';
 import About from "./About.vue";
 import Skills from "./Skills.vue";
+import Portfolio from "./Portfolio.vue";
 
 export default {
   name: 'MainPage',
@@ -24,6 +26,7 @@ export default {
     TypeEffect,
     About,
     Skills,
+    Portfolio,
   },
 }
 </script>

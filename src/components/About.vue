@@ -4,17 +4,6 @@
     <div class="face-container">
       <img
         src="../assets/logo-face.png"
-        v-motion="'custom'"
-        :initial="{ scale: 1.3}"
-        :enter="{ scale: 1,
-        transition: {
-            scale: {
-              duration: 500,
-              delay: 500
-            },
-          },
-        }"
-        
         alt=""
         style="width:100%"
       >
@@ -22,7 +11,7 @@
     <div class="about-description-wrapper">
       <div class="about-description-title">Here is a little something <em>about me</em>.</div>
       <div class="about-description-content">
-        I'm Patryk. Currenty working and living in Poznań, Poland. I've been coding for <em>over 2 years</em>.
+        I'm Patryk. Currently working and living in Poznań, Poland. I've been coding for <em>over 2 years</em>.
         My adventure with code began encouraged by people around me. At first I learned from free courses, in between I created my small portfolio of projects and also <em>studied math</em>.
         After a year of learning, I managed to find my first job as a full stack developer.
         However, I quickly decided to change my position to <em>front end developer</em> because it coincided more with what I liked.
@@ -55,6 +44,8 @@ export default {
 .about-title {
   width: fit-content;
   margin-inline: auto;
+  margin-bottom: clamp(20px, 4vw, 40px);
+  font-size: 22px;
   padding-block: 2px;
   color: rgba(255, 255, 255, 0.7);
   letter-spacing:5px;
@@ -109,6 +100,7 @@ export default {
   max-height: 400px;
   overflow-y: auto;
   margin-inline: auto;
+  padding: 10px 10px 30px 10px;
 }
 em {
   font-style: normal;

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="navbar-container"
-  >
+  <div class="navbar-container">
     <div class="navbar-content">
       <div class="navbar-logo">
         <div class="logo">
@@ -65,12 +63,18 @@ export default {
 
       const editCursor = e => {
             const { clientX: x, clientY: y } = e;
-            console.log(x, y, e);
+
+            let stopperX = window.innerWidth - 28;
+            let stopperY = window.innerHeight - 10;
+            if(e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= stopperX || e.clientY >= stopperY))
+                {
+                  return;
+                }
             cursor.style.left = x + 'px';
             cursor.style.top = y + 'px';
       };
 
-      window.addEventListener('mousemove', editCursor);
+      document.body.addEventListener('mousemove', editCursor);
     },
     openNav() {
       let nav = document.querySelector('.navbar-links');
@@ -104,9 +108,11 @@ export default {
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
+    background-color: rgba(32, 28, 36, 0.9);
     color: #fff;
     position: sticky;
     top: 0;
+    z-index: 999;
   }
 
   .navbar-content {
