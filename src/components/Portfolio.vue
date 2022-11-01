@@ -1,17 +1,36 @@
 <template>
   <div class="portfolio-container">
     <p class="portfolio-title">PORTFOLIO</p>
-    <a href="https://github.com/PatrykDorau" class="github-link">GITHUB</a>
+    <a
+      href="https://github.com/PatrykDorau"
+      ref="github"
+      class="github-link"
+      v-motion="motionGlowText"
+    >
+      GITHUB
+    </a>
     <div class="portfolio-items-container">
+      <div class="portfolio-item" v-for="(project, index) in projects" :key="index" :data-slide="index + 1 +'/'+ projects.length">
+        <div class="project-title">{{project.name}}</div>
+          <div class="project-img">
+            <img :src="project.img"/>
+          </div>
+          <div class="project-description">{{project.description}}</div>
+          <ul class="project-responsibilities">
+            <li v-for="(el, index) in project.responsibilities" :key="index">{{el}}</li>
+          </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import {motionGlowText} from '../motions';
 export default {
   name: "Portfolio",
   data() {
     return {
+      motionGlowText,
       projects: [
         {
           img: "",
@@ -43,36 +62,15 @@ export default {
     }
   },
   mounted() {
-    this.createLayout();
+    this.setActiveSlide()
   },
-  methods: {
-    createLayout() {
-      let container = document.querySelector(".portfolio-items-container");
-      console.log(container)
+  methods: { 
+    navigationService(e) {
+      console.log(e)
+    },
 
-      this.projects.forEach( (project, index) => {
-        container.innerHTML += `
-          <div class="portfolio-item">
-          <div class="project-title">${project.name}</div>
-            <div class="project-img">
-              <img src="${project.img}"/>
-            </div>
-            <div class="project-description">${project.description}</div>
-            <ul id="list-${index}" class="project-responsibilities"></ul>
-          </div>
-        ` 
-        let list
-        setTimeout(() => {
-          let id = `list-${index}`
-          list = document.querySelector(`[id="list-${index}"]`)
-          console.log(list, id)
-          project.responsibilities.forEach( respo => {
-
-          list.innerHTML += `<li>${respo}</li>`
-        })
-        }, 100);
-
-      })
+    setActiveSlide() {
+      document.querySelector('.portfolio-item').dataset.active = true;
     }
   }
 }
@@ -92,9 +90,11 @@ export default {
 
   .portfolio-items-container {
     display: flex;
-    justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    scroll-snap-type:x mandatory;
+    overflow-x: scroll;
+    width: 100%;
   }
 
   .portfolio-title {
@@ -132,8 +132,7 @@ export default {
   }
 
   .portfolio-item {
-    flex: 1;
-    padding: 10px;
+    /* flex: 1; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,7 +140,25 @@ export default {
     text-align: center;
     color: rgba(255, 255, 255, 0.9);
     min-width: 250px;
+    width: 100%;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
   }
+
+  .portfolio-item ul {
+    margin-block-start: 5px;
+    text-align: left;
+    list-style: none;
+    padding-top: 10px;
+  }
+  .portfolio-item ul li::before {
+  content: "\2022"; 
+  color: #D2B94B;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 
   .project-title {
     color: #D2B94B;

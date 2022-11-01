@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MainPage from './components/MainPage.vue';
+import MainPage from './views/MainPage.vue';
 
 export default {
   name: 'App',
@@ -17,9 +17,8 @@ export default {
 html, body {
   margin: 0;
   padding: 0;
-  cursor: none;
   background-color: #201c24;
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Segoe UI', 'Russo One', sans-serif;
   height: 100%;
   width: 100%;
 }

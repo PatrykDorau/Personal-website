@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="type-container">
     <div class="face-container">
-      <img src="../assets/logo-face.png" alt="" style="width:120%">
+      <img src="../assets/logo-face.png" alt="" style="width: 150%;">
     </div>
     <h1>
       : Hello, <em>I'm</em> Patryk Dorau.
@@ -65,7 +65,7 @@ import { setTimeout } from 'timers';
 </script>
 
 <style scoped>
-  .container {
+  .type-container {
     display: flex;
     width: fit-content;
     padding-inline: 15px;
@@ -75,12 +75,13 @@ import { setTimeout } from 'timers';
     align-items: center;
     color: white;
     background-color: rgba(255, 255, 255, 0.1);
+    font-family: 'Russo One';
   }
 
   .face-container {
     padding: 10px;
     margin: 5px 2px 5px 0;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 50%;
     background-color: #D2B94B;
     width: clamp(20px, calc(100vw * 25 / 1920),25px);;

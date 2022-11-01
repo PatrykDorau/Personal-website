@@ -6,27 +6,19 @@
     :enter="{ opacity: 1, y: 0,}"
   />
   <TypeEffect/>
-  <About/>
-  <Skills/>
-  <Portfolio/>
+  <router-view></router-view>
 </div>
 </template>
 
 <script>
-import Navbar from "./Navbar.vue";
-import TypeEffect from './TypeEffect.vue';
-import About from "./About.vue";
-import Skills from "./Skills.vue";
-import Portfolio from "./Portfolio.vue";
+import Navbar from "../components/Navbar.vue";
+import TypeEffect from '../components/TypeEffect.vue';
 
 export default {
   name: 'MainPage',
   components: {
     Navbar,
     TypeEffect,
-    About,
-    Skills,
-    Portfolio,
   },
 }
 </script>

@@ -5,7 +5,7 @@
       <div class="skills-row"
       v-motion="custom"
       :initial="{ opacity: 0, x: -30}"
-      :visible="{
+      :enter="{
         opacity: 1,
         x: 0,
         transition: {
@@ -56,7 +56,7 @@
       <div class="skills-row"
         v-motion="custom"
         :initial="{ opacity: 0, x: 30}"
-        :visible="{
+        :enter="{
           opacity: 1,
           x: 0,
           transition: {
@@ -107,7 +107,7 @@
       <div class="skills-row"
         v-motion="custom"
         :initial="{ opacity: 0, x: -30}"
-        :visible="{
+        :enter="{
           opacity: 1,
           x: 0,
           transition: {
@@ -246,6 +246,7 @@ export default {
 
 .skills-item:hover .img-hover-state {
   opacity: 1;
+  box-shadow: 0 0 9px rgba(200, 200, 200, 1);
 }
 
 .skills-item:hover .skills-item-text-wrapper {
