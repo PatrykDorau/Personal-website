@@ -3,7 +3,7 @@
     <div class="menu">
       <router-link to="/">Main page</router-link> / <router-link to="/about">About</router-link>
     </div>
-    <p class="about-title">ABOUT</p>
+    <h3 class="about-title">ABOUT</h3>
     <div class="about-description-wrapper">
       <div class="about-description-title">Here is a little something <em>about me</em>.</div>
       <div class="tab-btn" @click="openTab('carrer')">

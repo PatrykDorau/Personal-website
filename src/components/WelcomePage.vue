@@ -37,7 +37,6 @@
           <a href="https://github.com/PatrykDorau/robofrinds"> Robo Friends</a> <br>
           A liitle later another one came, a bit more complicated but with what a mess. It was made in <strong>React</strong>
           and <strong>express</strong> and was named <a href="https://github.com/PatrykDorau/SmartBrain">Smart Brain</a>.
-          <br>
           Dont judge me plz <span style='font-size:15px;'>&#128514;</span>
         </div>
       </div>

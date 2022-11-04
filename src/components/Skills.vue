@@ -3,7 +3,7 @@
     <div class="menu">
       <router-link to="/">Main page</router-link> / <router-link to="/skills">Skills</router-link>
     </div>
-    <p class="skills-title">SKILLS</p>
+    <h3 class="skills-title">SKILLS</h3>
     <div class="skills-wrapper">
       <div class="skills-row"
         v-motion="custom"
@@ -50,10 +50,10 @@
       </div>
       <div class="skills-row"
         v-motion="custom"
-        :initial="{ opacity: 0, y: 30}"
+        :initial="{ opacity: 0, x: 30}"
         :enter="{
           opacity: 1,
-          y: 0,
+          x: 0,
           transition: {
             type: 'spring',
             duration: 400,
@@ -92,7 +92,7 @@
       </div>
       <div class="skills-row"
         v-motion="custom"
-        :initial="{ opacity: 0, x: 30}"
+        :initial="{ opacity: 0, x: -30}"
         :enter="{
           opacity: 1,
           x: 0,
@@ -134,7 +134,7 @@
       </div>
       <div class="skills-row"
         v-motion="custom"
-        :initial="{ opacity: 0, x: -30}"
+        :initial="{ opacity: 0, x: 30}"
         :enter="{
           opacity: 1,
           x: 0,
@@ -240,6 +240,7 @@ export default {
 .skills-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   row-gap: 20px;
   margin-block: clamp(30px, 3vw, 60px);
 
@@ -248,7 +249,7 @@ export default {
 .skills-row {
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   width: fit-content;
   margin-inline: auto;
@@ -313,6 +314,8 @@ export default {
   width: clamp(50px, 6vw, 80px);
   height: clamp(15px, 3vw, 30px);
   text-align: center;
+  font-size: clamp(12px, calc(100vw * 16 / 800), 16px);
+  letter-spacing:1px;
 }
 
 .skills-item-img-wrapper img {

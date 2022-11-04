@@ -17,6 +17,12 @@ const routes = [
     component: () => import('@/components/Portfolio.vue')
   },
   {
+    path: '/portfolio/:name',
+    name: 'PortfolioElement',
+    props: true,
+    component: () => import('@/components/PortfolioElement.vue')
+  },
+  {
     path: '/skills',
     name: 'Skills',
     component: () => import('@/components/Skills.vue')
