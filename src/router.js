@@ -30,7 +30,7 @@ const routes = [
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import('@/components/Skills.vue')
+    component: () => import('@/components/Contact.vue')
   },
 ]
 const router = createRouter({

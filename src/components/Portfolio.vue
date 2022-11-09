@@ -37,7 +37,7 @@ export default {
         {
           img: "",
           video: "",
-          name: "Shop management panel",
+          name: "Shop Management Panel",
           id: "Shop-management-panel",
           type: "Commercial",
           github: "abc",
@@ -59,7 +59,7 @@ export default {
         {
           img: "",
           video: "",
-          name: "RPG game",
+          name: "RPG Game",
           id: "RPG-game",
           type: "Private",
           github: "abc",

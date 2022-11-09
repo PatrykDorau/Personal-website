@@ -147,6 +147,7 @@ export default {
 }
 .about-description-content.active {
   max-height: 400px;
+  margin-bottom: 20px;
 }
 em {
   font-style: normal;
@@ -156,7 +157,7 @@ em {
 .tab-btn {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     border-bottom: 1px solid bisque;
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -164,6 +165,7 @@ em {
 
 .indicator {
   position: relative;
+  cursor: pointer;
 }
 
 .indicator .first-line {
@@ -198,6 +200,9 @@ em {
   .about-description-content {
     width: 80%;
     overflow-y: hidden;
+  }
+  .tab-btn {
+    width: 80%;
   }
   
 }
