@@ -31,6 +31,11 @@ export default {
     padding: 0;
     box-sizing: border-box;
     background-color: #201c24;
+    /* background-image: url("../assets/blob-scene-haikei.svg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    margin-inline: auto;
+    max-width: 1000px;
   }
    ::-webkit-scrollbar {
     width: 12px;

@@ -93,6 +93,11 @@ export default {
 
       const editCursor = e => {
             const { clientX: x, clientY: y } = e;
+            let subtract;
+
+            if(window.innerWidth > 1000) {
+              subtract = (window.innerWidth - 1000) / 2
+            }
 
             let stopperX = window.innerWidth - 28;
             let stopperY = window.innerHeight - 10;
@@ -100,7 +105,7 @@ export default {
                 {
                   return;
                 }
-            cursor.style.left = x + 'px';
+            cursor.style.left = x - subtract + 'px';
             cursor.style.top = y + 'px';
       };
 
@@ -272,9 +277,6 @@ export default {
   }
 
   @media (min-width: 768px) {
-    .navbar-container {
-      justify-content: space-around;
-    }
     .navbar-links {
       display: flex;
       justify-content: space-between;
